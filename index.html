@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Marque Sukhumvit 185 sqm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Marcellus&display=swap">
+<style>
+/* Layout: a printed brochure on a desk. Two-page spreads on wide screens, one page on phones.
+   Pages are fixed paper (a physical object); the desk around them follows the viewer's theme. */
+:root{
+  --paper:#F8F6F2; --paper-2:#EFEBE4; --ink:#28231F; --ink-soft:#6E655C;
+  --walnut:#7A5538; --bronze:#2F2924; --rule:#DCD5CA;
+  --desk:#E4DFD7; --desk-ink:#3B342E; --desk-soft:#7C7268; --chip:#F4F1EC; --chip-line:#CFC7BB;
+  --display:"Marcellus","Cormorant Garamond",Georgia,serif;
+  --sans:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --desk:#191613; --desk-ink:#E9E3DA; --desk-soft:#A0968A; --chip:#25211D; --chip-line:#3F3831; color-scheme:dark}}
+:root[data-theme="dark"]{--desk:#191613; --desk-ink:#E9E3DA; --desk-soft:#A0968A; --chip:#25211D; --chip-line:#3F3831; color-scheme:dark}
+
+html,body{height:100%;margin:0}
+body{background:var(--desk);color:var(--desk-ink);font-family:var(--sans);font-weight:300;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:14px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:14px;overflow-x:hidden}
+
+.topbar{width:100%;max-width:1200px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-size:20px;letter-spacing:.06em}
+.brand small{font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--desk-soft);margin-left:10px}
+.jump{display:flex;gap:6px;flex-wrap:wrap}
+.jump button,.nav button{font:400 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--desk-ink);
+  background:var(--chip);border:1px solid var(--chip-line);border-radius:6px;padding:8px 12px;cursor:pointer}
+.jump button[aria-current="true"]{background:var(--desk-ink);color:var(--desk);border-color:var(--desk-ink);font-weight:500}
+.jump button:focus-visible,.nav button:focus-visible{outline:2px solid var(--walnut);outline-offset:2px}
+
+.book-wrap{width:min(100%,calc((100dvh - 150px) * 1.5),1200px);flex:0 0 auto}
+@media (max-width:640px){.book-wrap{width:min(100%,calc((100dvh - 190px) * .75))}}
+#book{margin:0 auto}
+.nav{display:flex;align-items:center;gap:14px}
+.nav .count{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--desk-soft);font-variant-numeric:tabular-nums;min-width:110px;text-align:center}
+.nav button{padding:9px 16px}
+.nav button:disabled{opacity:.35;cursor:default}
+.hint{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--desk-soft)}
+
+/* ---------- pages ---------- */
+.page{background:var(--paper);color:var(--ink);overflow:hidden;container-type:size}
+.pg{width:100%;height:100%;position:relative;box-sizing:border-box;display:flex;flex-direction:column}
+.pad{padding:9cqw 8cqw 7cqw}
+.folio{position:absolute;bottom:3.6cqw;left:8cqw;right:8cqw;display:flex;justify-content:space-between;
+  font-size:2.1cqw;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:2.5cqw;letter-spacing:.26em;text-transform:uppercase;color:var(--walnut);font-weight:400}
+.h1{font-family:var(--display);font-weight:400;font-size:9cqw;line-height:1.05;margin:2.4cqw 0 0;letter-spacing:.01em;text-wrap:balance}
+.h2{font-family:var(--display);font-weight:400;font-size:6.2cqw;line-height:1.1;margin:2cqw 0 0;text-wrap:balance}
+.lede{font-size:3.4cqw;line-height:1.6;color:var(--ink-soft);margin:4cqw 0 0;max-width:62ch}
+.rule{height:1px;background:var(--rule);margin:5cqw 0}
+
+/* photo pages */
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.0) 45%,rgba(20,16,12,.72) 100%)}
+.shade.top{background:linear-gradient(180deg,rgba(20,16,12,.55) 0%,rgba(20,16,12,0) 30%,rgba(20,16,12,0) 55%,rgba(20,16,12,.75) 100%)}
+.over{position:absolute;left:8cqw;right:8cqw;bottom:8cqw;color:#F7F3EC}
+.over .num{font-family:var(--display);font-size:22cqw;line-height:.9;letter-spacing:.02em}
+.over .name{font-size:3cqw;letter-spacing:.3em;text-transform:uppercase;margin-top:2cqw;font-weight:400}
+.cap{position:absolute;left:8cqw;bottom:6cqw;color:#F7F3EC;font-size:2.6cqw;letter-spacing:.22em;text-transform:uppercase;font-weight:400}
+
+/* cover */
+.cover .page-top{position:absolute;top:8cqw;left:8cqw;right:8cqw;display:flex;justify-content:space-between;color:#F7F3EC;
+  font-size:2.4cqw;letter-spacing:.28em;text-transform:uppercase;font-weight:400}
+.cover .over h1{font-family:var(--display);font-weight:400;font-size:12.5cqw;line-height:1;margin:0;letter-spacing:.02em}
+.cover .over p{margin:3cqw 0 0;font-size:3.3cqw;letter-spacing:.06em;line-height:1.5}
+.cover .over .line{width:14cqw;height:1px;background:#F7F3EC;opacity:.7;margin:5cqw 0 3cqw}
+.cover .over .meta{font-size:2.3cqw;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+
+/* spec sheet */
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:0 6cqw;margin:4cqw 0 0}
+.spec.wide{grid-column:1 / -1}
+.equip{margin-top:3.4cqw}
+.pad > .h1{font-size:7.6cqw}
+.equip .label{font-size:2.4cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--walnut);font-weight:400}
+.equip ul{list-style:none;padding:0;margin:2cqw 0 0;display:grid;grid-template-columns:1fr 1fr;gap:1.4cqw 6cqw}
+.equip li{font-size:2.9cqw;line-height:1.35;padding-left:3cqw;position:relative}
+.equip li::before{content:"";position:absolute;left:0;top:1.5cqw;width:1.2cqw;height:1px;background:var(--walnut)}
+.spec{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--rule);padding:2.1cqw 0;gap:2cqw}
+.spec dt{font-size:2.5cqw;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.spec dt{flex:none}
+.spec dd{margin:0;font-size:3.4cqw;line-height:1.3;font-weight:400;font-variant-numeric:tabular-nums;text-align:right}
+.terms{margin-top:auto;margin-bottom:3cqw;background:var(--paper-2);padding:4cqw 5cqw;display:flex;flex-direction:column;gap:2.6cqw}
+.terms .label{font-size:2.4cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--walnut);font-weight:400}
+.term{display:flex;justify-content:space-between;align-items:baseline;gap:3cqw}
+.term .k{font-size:3.2cqw}
+.term .v{font-family:var(--display);font-size:6.6cqw;font-variant-numeric:tabular-nums;white-space:nowrap}
+.term .v small{font-family:var(--sans);font-size:2.4cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-left:1.5cqw}
+.term + .term{border-top:1px solid var(--rule);padding-top:2.6cqw}
+.note{font-size:2.6cqw;color:var(--ink-soft);line-height:1.5}
+
+/* plan pages */
+.planbox{flex:1;display:flex;align-items:center;justify-content:center;padding:4cqw 0;min-height:0}
+.planbox img{max-height:100%;max-width:100%;object-fit:contain;mix-blend-mode:multiply}
+.plancap{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--rule);padding-top:3cqw;gap:3cqw}
+.plancap .t{font-family:var(--display);font-size:5cqw}
+.plancap .s{font-size:2.5cqw;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);text-align:right}
+
+/* gallery page */
+.gallery{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.25fr 1fr;gap:1.4cqw;padding:1.4cqw;background:var(--paper)}
+.gallery figure{margin:0;position:relative;overflow:hidden}
+.gallery figure:first-child{grid-column:1 / -1}
+.gallery.stack{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+.gallery img.right{object-position:72% 50%}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;max-width:none}
+.gallery figcaption{position:absolute;left:3cqw;bottom:2.6cqw;color:#F7F3EC;font-size:2.3cqw;letter-spacing:.2em;text-transform:uppercase;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.45)}
+
+/* contents + compare */
+.toc{list-style:none;padding:0;margin:6cqw 0 0;display:flex;flex-direction:column}
+.toc li{border-top:1px solid var(--rule)}
+.toc li:last-child{border-bottom:1px solid var(--rule)}
+.toc button{all:unset;cursor:pointer;display:grid;grid-template-columns:22cqw 1fr auto;align-items:center;gap:3cqw;padding:4.4cqw 0;width:100%;box-sizing:border-box}
+.toc button:focus-visible{outline:2px solid var(--walnut);outline-offset:2px}
+.toc .n{font-family:var(--display);font-size:8cqw;line-height:1}
+.toc .d{font-size:3.1cqw;line-height:1.45}
+.toc .d b{font-weight:400;display:block;letter-spacing:.16em;text-transform:uppercase;font-size:2.5cqw;color:var(--walnut)}
+.toc .p{font-size:2.4cqw;letter-spacing:.18em;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+
+.cmp{width:100%;border-collapse:collapse;margin-top:4cqw;font-variant-numeric:tabular-nums}
+.cmp th,.cmp td{text-align:left;padding:2.6cqw 1.5cqw;border-bottom:1px solid var(--rule);vertical-align:top}
+.cmp thead th{font-weight:400;font-size:2.1cqw;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.cmp tbody th{font-family:var(--display);font-weight:400;font-size:5cqw;line-height:1}
+.cmp td{font-size:2.85cqw;line-height:1.45}
+.cmp td.r{text-align:right;white-space:nowrap}
+.cmp thead th.r{text-align:right}
+.cmp .rent{font-weight:400}
+
+.contact{margin-top:auto;display:flex;flex-direction:column;gap:3cqw}
+.contact .row{display:flex;justify-content:space-between;border-bottom:1px solid var(--rule);padding-bottom:2.6cqw;font-size:3.2cqw;gap:3cqw}
+.contact .row span:first-child{font-size:2.4cqw;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+
+.back{background:var(--bronze);color:#EDE6DC;justify-content:center;align-items:center;text-align:center;gap:3cqw}
+.back .mark{font-family:var(--display);font-size:9cqw;letter-spacing:.04em}
+.back .sub{font-size:2.5cqw;letter-spacing:.32em;text-transform:uppercase;opacity:.75}
+.back .line{width:12cqw;height:1px;background:#EDE6DC;opacity:.5;margin:3cqw auto}
+
+.steps{list-style:none;padding:0;margin:4cqw 0 0;display:flex;flex-direction:column;gap:3.4cqw;counter-reset:st}
+.steps li{display:grid;grid-template-columns:9cqw 1fr;gap:2cqw;counter-increment:st}
+.steps li::before{content:counter(st);font-family:var(--display);font-size:7cqw;line-height:1;color:var(--walnut)}
+.steps b{display:block;font-weight:400;font-size:3.4cqw;margin-bottom:.8cqw}
+.steps span{font-size:2.9cqw;line-height:1.5;color:var(--ink-soft)}
+.upfront{margin-top:4cqw;background:var(--paper-2);padding:3.4cqw 4.5cqw;font-size:2.9cqw;line-height:1.5}
+.upfront strong{font-weight:400;color:var(--ink)}
+.subhead{font-size:2.4cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--walnut);font-weight:400;margin-top:5cqw}
+.bills{display:flex;flex-direction:column;margin-top:1.6cqw}
+.bills .row{display:grid;grid-template-columns:20cqw 1fr;gap:3cqw;border-bottom:1px solid var(--rule);padding:2cqw 0;font-size:2.9cqw;line-height:1.4}
+.bills .row span:first-child{font-size:2.4cqw;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);padding-top:.3cqw}
+.sign{margin-top:auto;margin-bottom:3cqw;display:flex;justify-content:space-between;font-size:2.9cqw;gap:3cqw;flex-wrap:wrap}
+.sign span:last-child{color:var(--walnut)}
+.cmp.small{margin-top:2cqw}
+.cmp.small tbody th{font-size:3.6cqw}
+.cmp.small td{font-size:2.7cqw}
+.cmp.small th,.cmp.small td{padding:1.3cqw 1.5cqw}
+
+.facility{position:absolute;top:0;left:0;width:100%;height:44%;object-fit:cover;max-width:none}
+.facility-text{position:absolute;top:44%;left:0;right:0;padding-top:5cqw}
+.facility-text .equip ul{gap:1.6cqw 5cqw}
+.bills .row span:first-child{min-width:0}
+.bills .row{grid-template-columns:22cqw 1fr}
+/* fallback if the flip engine can't load */
+.flat #book{display:flex;flex-direction:column;gap:16px;align-items:center}
+.flat .page{width:min(100%,520px);aspect-ratio:3/4;max-width:100%}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head><body>
+
+<header class="topbar">
+  <div class="brand">Marque Sukhumvit<small>Floor 42 · Nexspace Realty</small></div>
+  <nav class="jump" aria-label="Jump to section">
+    <button type="button" data-go="0">Cover</button>
+    <button type="button" data-go="1">Details</button>
+    <button type="button" data-go="2">Living</button>
+    <button type="button" data-go="4">Bedroom</button>
+    <button type="button" data-go="7">Plan</button>
+    <button type="button" data-go="8">Building</button>
+    <button type="button" data-go="10">Price</button>
+  </nav>
+</header>
+
+<div class="book-wrap">
+<div id="book">
+
+  <!-- 1 cover -->
+  <div class="page" data-density="hard"><div class="pg cover">
+    <img class="photo" src="img/tower.jpg" alt="Marque Sukhumvit tower at night above Sukhumvit Road">
+    <div class="shade top"></div>
+    <div class="page-top"><span>Nexspace Realty</span><span>For sale &amp; rent</span></div>
+    <div class="over">
+      <h1>Marque<br>Sukhumvit</h1>
+      <p>Two-bedroom residence on the 42nd floor</p>
+      <div class="line"></div>
+      <div class="meta">185 sqm &nbsp;/&nbsp; Freehold &nbsp;/&nbsp; Private lift</div>
+    </div>
+  </div></div>
+
+  <!-- 2 details -->
+  <div class="page"><div class="pg pad">
+    <div class="eyebrow">Marque Sukhumvit · Floor 42</div>
+    <h2 class="h1">Two Bedroom Residence</h2>
+    <dl class="specs">
+      <div class="spec"><dt>Area</dt><dd>185 sqm</dd></div>
+      <div class="spec"><dt>Floor</dt><dd>42nd</dd></div>
+      <div class="spec"><dt>Bedrooms</dt><dd>2</dd></div>
+      <div class="spec"><dt>Bathrooms</dt><dd>2</dd></div>
+      <div class="spec"><dt>Powder room</dt><dd>1</dd></div>
+      <div class="spec"><dt>Balcony</dt><dd>Yes</dd></div>
+      <div class="spec"><dt>Facing</dt><dd>South / East</dd></div>
+      <div class="spec"><dt>Lift</dt><dd>Private</dd></div>
+      <div class="spec wide"><dt>Ownership</dt><dd>Freehold, Thai &amp; foreign buyers</dd></div>
+    </dl>
+    <div class="terms">
+      <div class="label">Offered</div>
+      <div class="term"><span class="k">For sale, furnished</span><span class="v">120,000,000<small>THB</small></span></div>
+      <div class="term"><span class="k">For rent, 1-year lease</span><span class="v">320,000<small>THB / mo</small></span></div>
+    </div>
+    <div class="folio"><span>Marque Sukhumvit</span><span>02</span></div>
+  </div></div>
+
+  <!-- 3 living -->
+  <div class="page"><div class="pg">
+    <img class="photo" src="img/living-view.jpg" alt="Living room with a wide city view through floor-to-ceiling windows">
+    <div class="shade"></div>
+    <div class="cap">Living room</div>
+  </div></div>
+
+  <!-- 4 living corner -->
+  <div class="page"><div class="pg">
+    <img class="photo" src="img/living-corner.jpg" alt="Corner of the living room with glass on two sides and a lounge chair">
+    <div class="shade"></div>
+    <div class="cap">Corner view, south &amp; east</div>
+  </div></div>
+
+  <!-- 5 bedroom -->
+  <div class="page"><div class="pg">
+    <img class="photo" src="img/bedroom.jpg" alt="Bedroom with a king bed, desk and a tall window over the city">
+    <div class="shade"></div>
+    <div class="cap">Bedroom</div>
+  </div></div>
+
+  <!-- 6 bathroom -->
+  <div class="page"><div class="pg">
+    <img class="photo" src="img/bathroom.jpg" alt="Marble bathroom with hand-painted basin and glass shower">
+    <div class="shade"></div>
+    <div class="cap">Marble bathroom</div>
+  </div></div>
+
+  <!-- 7 features -->
+  <div class="page"><div class="pg">
+    <img class="facility" style="object-position:20% 50%" src="img/dining-kitchen.jpg" alt="Built-in Porsche Design kitchen with island">
+    <div class="pad facility-text">
+      <div class="eyebrow">In the residence</div>
+      <h2 class="h2">Finished and furnished</h2>
+      <div class="equip"><ul>
+        <li>Private lift</li><li>Balcony</li>
+        <li>Porsche Design kitchen</li><li>Walk-in closet</li>
+        <li>Jacuzzi bathtub</li><li>Powder room</li>
+        <li>Marble floors</li><li>Sold with furniture</li>
+        <li>Concierge by DHS</li><li>South / east views</li>
+      </ul></div>
+    </div>
+    <div class="folio"><span>Marque Sukhumvit</span><span>07</span></div>
+  </div></div>
+
+  <!-- 8 floor plan -->
+  <div class="page"><div class="pg pad">
+    <div class="eyebrow">Floor plan · Floors 41–43</div>
+    <div class="planbox"><img src="img/floorplan.png" alt="Typical floor plan for floors 41 to 43 of Marque Sukhumvit"></div>
+    <div class="plancap" style="margin-bottom:5cqw"><span class="t">Typical floor</span><span class="s">4 residences per floor<br>Floors 41–43</span></div>
+    <p class="note" style="margin:0 0 4cqw">Developer's plan, for illustration. Layouts may be subject to change.</p>
+    <div class="folio"><span>Marque Sukhumvit</span><span>08</span></div>
+  </div></div>
+
+  <!-- 9 building -->
+  <div class="page"><div class="pg pad">
+    <div class="eyebrow">The building</div>
+    <h2 class="h1">Marque Sukhumvit</h2>
+    <p class="lede">A 222.5-metre residential tower on Sukhumvit Road, with design concepts inspired by the marquise diamond shape.</p>
+    <div class="bills" style="margin-top:4cqw">
+      <div class="row"><span>Height</span><span>222.5 m, 52 floors</span></div>
+      <div class="row"><span>Residences</span><span>149 units</span></div>
+      <div class="row"><span>Location</span><span>Sukhumvit Road, Khlong Tan Nuea, Watthana</span></div>
+      <div class="row"><span>Developer</span><span>Major Development</span></div>
+      <div class="row"><span>Architect</span><span>P&amp;T Group (Palmer &amp; Turner Thailand)</span></div>
+      <div class="row"><span>Design</span><span>August Design Consultant</span></div>
+      <div class="row"><span>Concierge</span><span>Dusit Hospitality Services (DHS)</span></div>
+    </div>
+    <div class="folio"><span>The building</span><span>09</span></div>
+  </div></div>
+
+  <!-- 10 facilities -->
+  <div class="page"><div class="pg">
+    <div class="gallery stack">
+      <figure><img src="img/pool.jpg" alt="Outdoor swimming pool with sun loungers"><figcaption>Swimming pool</figcaption></figure>
+      <figure><img src="img/sky-pool.jpg" alt="Sky pool and jacuzzi under the tower's slanted glass crown"><figcaption>Sky pool</figcaption></figure>
+    </div>
+  </div></div>
+
+  <!-- 11 price & terms -->
+  <div class="page"><div class="pg pad">
+    <div class="eyebrow">Price &amp; terms</div>
+    <h2 class="h1">Buy or rent</h2>
+    <div class="subhead" style="margin-top:3cqw">For sale</div>
+    <div class="bills">
+      <div class="row"><span>Price</span><span>120,000,000 THB, with furniture</span></div>
+      <div class="row"><span>Per sqm</span><span>About 648,650 THB</span></div>
+      <div class="row"><span>Ownership</span><span>Freehold, open to Thai and foreign buyers</span></div>
+      <div class="row"><span>Common fee</span><span>90 THB per sqm, about 16,650 THB a month</span></div>
+    </div>
+    <div class="subhead" style="margin-top:4cqw">For rent</div>
+    <div class="bills">
+      <div class="row"><span>Rent</span><span>320,000 THB per month</span></div>
+      <div class="row"><span>Lease</span><span>1 year</span></div>
+    </div>
+    <div class="folio"><span>Nexspace Realty · LINE @nexspace</span><span>11</span></div>
+  </div></div>
+
+  <!-- 12 back cover -->
+  <div class="page" data-density="hard"><div class="pg back">
+    <div class="sub">Presented by</div>
+    <div class="mark">Nexspace Realty</div>
+    <div class="line"></div>
+    <div class="sub">LINE @nexspace</div>
+  </div></div>
+
+</div>
+</div>
+
+<div class="nav">
+  <button type="button" id="prev" aria-label="Previous page">Prev</button>
+  <span class="count" id="count">Cover</span>
+  <button type="button" id="next" aria-label="Next page">Next</button>
+</div>
+<div class="hint">Drag a corner, swipe, or use the arrow keys</div>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+(function(){
+  const pages = document.querySelectorAll('#book .page');
+  const total = pages.length;
+  const count = document.getElementById('count');
+  const prev = document.getElementById('prev'), next = document.getElementById('next');
+  const chips = [...document.querySelectorAll('.jump button')];
+  const starts = chips.map(b => +b.dataset.go);
+  let flip = null;
+
+  function label(i){
+    if (i === 0) return 'Cover';
+    if (i === total - 1) return 'Back cover';
+    return 'Page ' + (i + 1) + ' / ' + total;
+  }
+  function update(i){
+    count.textContent = label(i);
+    prev.disabled = i <= 0; next.disabled = i >= total - 1;
+    let cur = 0; starts.forEach((s, k) => { if (s <= i) cur = k; });
+    chips.forEach((b, k) => b.setAttribute('aria-current', k === cur ? 'true' : 'false'));
+  }
+  function go(n){
+    if (flip) flip.flip(n);
+    else pages[n].scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  if (window.St && St.PageFlip) {
+    flip = new St.PageFlip(document.getElementById('book'), {
+      width: 600, height: 800, size: 'stretch',
+      minWidth: 260, maxWidth: 600, minHeight: 347, maxHeight: 800,
+      showCover: true, usePortrait: true, mobileScrollSupport: false,
+      maxShadowOpacity: 0.35, flippingTime: 800, drawShadow: true
+    });
+    flip.loadFromHTML(pages);
+    flip.on('flip', e => update(e.data));
+  } else {
+    document.body.classList.add('flat');
+  }
+
+  prev.addEventListener('click', () => flip ? flip.flipPrev() : null);
+  next.addEventListener('click', () => flip ? flip.flipNext() : null);
+  document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); go(+b.dataset.go); }));
+  document.addEventListener('keydown', e => {
+    if (!flip) return;
+    if (e.key === 'ArrowRight') flip.flipNext();
+    if (e.key === 'ArrowLeft') flip.flipPrev();
+  });
+  update(0);
+})();
+</script>
+</body></html>
